@@ -2,18 +2,16 @@ const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = { 
+module.exports = {
     entry: ['react-hot-loader/patch', './src/index.react.js'],
+    devtool: 'cheap-module-eval-source-map',
     output: {
-        path: path.join(__dirname, 'dist', 'js'),
+        path: path.join(__dirname, 'public', 'js'),
         publicPath: '/js/',
         filename: 'app.js'
     },
     resolve: {
-        modules: [
-            path.resolve(process.cwd(), 'src'), 
-            path.resolve(process.cwd(), 'node_modules')
-        ]
+        modules: [path.resolve(process.cwd(), 'src'), path.resolve(process.cwd(), 'node_modules')]
     },
     module: {
         rules: [
@@ -36,25 +34,28 @@ module.exports = {
                         options: {
                             modules: {
                                 localIdentName: '[local]--[hash:base64:5]'
-                            }
+                            },
+                            sourceMap: true
                         }
                     },
-                    { loader: 'sass-loader' }
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
                 ]
             }
         ]
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'dist', 'js', 'app.js')]
+            cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'public', 'js', 'app.js')]
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: 'dist/',
-        hot: true,
-        historyApiFallback: {
-            index: '/index.html'
-        }
+        contentBase: 'public/',
+        hot: true
     }
 };

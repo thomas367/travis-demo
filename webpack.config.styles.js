@@ -6,18 +6,14 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    const cssModules = glob.sync(path.resolve(process.cwd(), 'src/components/**/*.scss'));
     mode: 'production',
-    entry: cssModules,
+    entry: glob.sync(path.resolve(process.cwd(), 'src/components/**/*.scss')),
     output: {
-        path: path.join(__dirname, 'src', 'dist', 'css'),
+        path: path.join(__dirname, 'src', 'public', 'css'),
         filename: 'temp.js'
     },
     resolve: {
-        modules: [
-            path.resolve(process.cwd(), 'src'), 
-            path.resolve(process.cwd(), 'node_modules')
-        ]
+        modules: [path.resolve(process.cwd(), 'src'), path.resolve(process.cwd(), 'node_modules')]
     },
     module: {
         rules: [
@@ -31,23 +27,23 @@ module.exports = {
                             modules: {
                                 localIdentName: '[hash:base64:5]'
                             },
-                            sourceMap: false,
+                            sourceMap: false
                         }
                     },
-                    { 
+                    {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: false
                         }
                     }
                 ]
-            },
+            }
         ]
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'src', 'dist', 'css')],
-            cleanAfterEveryBuildPatterns: [path.join(__dirname, 'src', 'dist', 'css', 'temp.js')]
+            cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'src', 'public', 'css')],
+            cleanAfterEveryBuildPatterns: [path.join(__dirname, 'src', 'public', 'css', 'temp.js')]
         }),
         new UglifyJSPlugin(),
         new MiniCssExtractPlugin({
@@ -56,10 +52,7 @@ module.exports = {
         new webpack.DefinePlugin(envKeys)
     ],
     devServer: {
-        contentBase: 'src/dist/',
-        hot: true,
-        historyApiFallback: {
-            index: '/index.html'
-        }
+        contentBase: 'public/',
+        hot: true
     }
 };
