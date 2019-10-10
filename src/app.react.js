@@ -1,16 +1,10 @@
-import React, {Component} from 'react';
-import './app.scss';
+import React, { Component } from 'react';
+import styles from 'app.scss';
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-
         return (
-            <div className='app'>
+            <div className={styles.app}>
                 <p>Hello</p>
             </div>
         );
