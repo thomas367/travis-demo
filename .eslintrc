@@ -3,7 +3,6 @@
   "env": {
     "browser": true,
     "node": true,
-    "jest": true,
     "es6": true
   },
   "plugins": ["react", "prettier"],
@@ -26,7 +25,7 @@
     "plugin:import/warnings"],
   "settings": {
     "react": {
-      "version": "16.5.2"
+      "version": "16.10.0"
     },
     "import/resolver": {
       "webpack": {
