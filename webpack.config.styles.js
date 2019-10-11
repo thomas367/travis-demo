@@ -50,9 +50,5 @@ module.exports = {
             filename: 'styles.css'
         }),
         new webpack.DefinePlugin(envKeys)
-    ],
-    devServer: {
-        contentBase: 'public/',
-        hot: true
-    }
+    ]
 };

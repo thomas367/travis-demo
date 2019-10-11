@@ -52,9 +52,5 @@ module.exports = {
             cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'public', 'js', 'app.js')]
         }),
         new UglifyJSPlugin()
-    ],
-    devServer: {
-        contentBase: 'public/',
-        hot: true
-    }
+    ]
 };
