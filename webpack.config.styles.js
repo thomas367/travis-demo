@@ -48,7 +48,6 @@ module.exports = {
         new UglifyJSPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.css'
-        }),
-        new webpack.DefinePlugin(envKeys)
+        })
     ]
 };
