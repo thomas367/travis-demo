@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.react.js",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js --mode development",
     "build": "npm run build-styles && webpack --config ./webpack.config.prod.js --mode production",
     "build-styles": "webpack --config ./webpack.config.styles.js"
