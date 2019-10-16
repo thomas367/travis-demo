@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.react.js",
+    "start": "node server.js",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js --mode development",
     "build": "npm run build-styles && webpack --config ./webpack.config.prod.js --mode production",
     "build-styles": "webpack --config ./webpack.config.styles.js"
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/thomas367/travis-demo#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
