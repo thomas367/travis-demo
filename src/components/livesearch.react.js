@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import styles from './livesearch.scss';
-import { search } from '../utils/utils';
-import Movies from './movies/movies';
+import styles from 'components/livesearch.scss';
+import { search } from 'utils/utils';
+import Movies from 'components/movies/movies';
 
 
 class LiveSearch extends Component {
-	state = {
-    	movies: null,
-    	loading: false,
-    	value: ""
-  	};
+	
+	constructor() {
+		super();
+
+		this.state = {
+			movies: null,
+			loading: false,
+			value: ""
+		};
+	}
+	
 
   	search = async val => {
     	this.setState({ loading: true });
