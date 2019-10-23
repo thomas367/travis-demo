@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import styles from 'app.scss';
+import React from 'react';
+import LiveSearch from './components/livesearch.react';
 
-class App extends Component {
-    render() {
-        return (
-            <div className={styles.app}>
-                <p>Hello</p>
-            </div>
-        );
-    }
-}
+function App() {
+    return (
+      <LiveSearch/>
+    );
+  }
 
 export default App;
