@@ -1,5 +1,5 @@
 import React from 'react';
-import LiveSearch from './components/livesearch.react';
+import LiveSearch from 'components/livesearch.react';
 
 function App() {
     return (

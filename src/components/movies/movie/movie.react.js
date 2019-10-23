@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './movie.scss';
+import styles from 'components/movies/movie/movie.scss';
 
 const Movie = props => {
   const { title, poster_path, vote_average } = props.item;
